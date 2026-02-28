@@ -1,29 +1,3 @@
-<img src="https://raw.githubusercontent.com/pytgcalls/pytgcalls/master/.github/images/banner.png" alt="pytgcalls logo" />
-<p align="center">
-    <b>A simple and elegant client that allows you to make group voice calls quickly and easily.</b>
-    <br>
-    <a href="https://github.com/pytgcalls/pytgcalls/tree/master/example">
-        Examples
-    </a>
-    •
-    <a href="https://pytgcalls.github.io/">
-        Documentation
-    </a>
-    •
-    <a href="https://pypi.org/project/py-tgcalls/">
-        PyPi
-    </a>
-    •
-    <a href="https://t.me/pytgcallsnews">
-        Channel
-    </a>
-    •
-    <a href="https://t.me/pytgcallschat">
-        Chat
-    </a>
-</p>
-
-# PyTgCalls [![PyPI](https://img.shields.io/pypi/v/py-tgcalls.svg?logo=python&logoColor=%23959DA5&label=pypi&labelColor=%23282f37)](https://pypi.org/project/py-tgcalls/) [![Downloads](https://img.shields.io/pepy/dt/py-tgcalls?logoColor=%23959DA5&labelColor=%23282f37&color=%2328A745)](https://pepy.tech/project/py-tgcalls)
 This project allows making Telegram call using MtProto and WebRTC, this is possible thanks to the power of [NTgCalls] library and [@evgeny-nadymov]
 
 #### Example Usage
@@ -58,7 +32,7 @@ Here's how to install the PyTgCalls lib, the commands are given below:
 
 ``` bash
 # With Git
-pip install git+https://github.com/pytgcalls/pytgcalls -U
+pip install git+https://github.com/growxupdate/pyrocall-v2 -U
 
 # With PyPi (Recommended)
 pip install py-tgcalls -U
