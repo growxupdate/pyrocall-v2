@@ -195,7 +195,64 @@ class MediaStream(Stream):
             ),
         )
 
+    # =========================================================
+    # 🔥 FAST PATH: local file + audio → NO CHECKS
+    # =========================================================
     async def check_stream(self):
+        
+        # =====================================================
+        # ⚡ FAST PATH: LOCAL FILE (AUDIO + VIDEO BOTH)
+        # =====================================================
+        if self._media_path and os.path.exists(self._media_path):
+            # ---------------- AUDIO ----------------
+            if not (self._audio_flags & MediaStream.Flags.IGNORE):
+                self._audio_path = self._audio_path or self._media_path
+
+                if self.microphone:
+                    self.microphone.path = list_to_cmd(
+                        build_command(
+                            'ffmpeg',
+                            self._ffmpeg_parameters,
+                            self._audio_path,
+                            self._audio_parameters,
+                            [],
+                            self._headers,
+                            True,   # treat as live / growing file
+                        ),
+                    )
+            else:
+                self.microphone = None
+
+            # ---------------- VIDEO ----------------
+            if not (self._video_flags & MediaStream.Flags.IGNORE):
+                video_ext = ('.mp4', '.mkv', '.webm', '.mov', '.avi')
+                is_video_file = self._media_path.lower().endswith(video_ext)
+
+                if is_video_file and self.camera:
+                    self.camera.path = list_to_cmd(
+                        build_command(
+                            'ffmpeg',
+                            self._ffmpeg_parameters,
+                            self._media_path,
+                            self._video_parameters,
+                            [],
+                            self._headers,
+                            True,   # treat as live / growing file
+                        ),
+                    )
+                else:
+                    self.camera = None
+            else:
+                self.camera = None
+
+            # Local file (audio OR video) fully handled here
+            return
+
+
+        # =====================================================
+        # ⬇️ ORIGINAL pytgcalls LOGIC (UNCHANGED)
+        # =====================================================
+        
         if not self._video_flags & MediaStream.Flags.IGNORE and \
                 not self._is_video_external:
             if self._is_media_device:
