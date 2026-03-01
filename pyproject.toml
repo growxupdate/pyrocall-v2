@@ -1,6 +1,6 @@
 [project]
 dynamic = ["version"]
-name = "py-tgcalls"
+name = "pyrocalls"
 description = "Async client API for the Telegram Calls."
 readme = "README.md"
 license-files = ["LICENSE"]
@@ -8,11 +8,11 @@ classifiers = [
     'Operating System :: OS Independent',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
     'Programming Language :: Python :: 3.11',
     'Programming Language :: Python :: 3.12',
     'Programming Language :: Python :: 3.13',
-    'Programming Language :: Python :: 3.14',
 ]
 authors = [
     {name = "Laky-64", email = "iraci.matteo@gmail.com"},
@@ -20,10 +20,29 @@ authors = [
 keywords = [
     "audio", "python", "library", "video", "telegram", "stream",
     "ffmpeg", "cpp", "webrtc", "voice-chat", "voip", "group-chat",
-    "video-calls", "calls", "video-chat", "pytgcalls", "ntgcalls",
-    "tgcalls", "py-tgcalls", "pyrogram", "telethon", "hydrogram"
+    "video-calls", "calls", "video-chat",
+
+    # brand / package names
+    "pyrocalls",
+    "pyro-calls",
+    "pyro",
+    "pytgcalls",
+    "py-tgcalls",
+    "tgcalls",
+    "ntgcalls",
+
+    # telegram frameworks
+    "pyrogram",
+    "telethon",
+    "hydrogram",
+
+    # telegram features
+    "telegram-voice-chat",
+    "telegram-video-call",
+    "telegram-calls"
 ]
-requires-python = ">=3.10"
+
+requires-python = ">=3.9"
 dependencies = [
     "aiohttp>=3.9.3",
     "ntgcalls>=2.1.0,<3.0.0",
